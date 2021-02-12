@@ -1,2 +1,4 @@
-.idea
-target
+.idea/
+target/
+node_modules/
+resources/js/client.js

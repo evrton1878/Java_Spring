@@ -1,0 +1,29 @@
+$light-color: #E6E7E8;
+$dark-color:#414042;
+$orange-color: #FFD850;
+
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height:100vh;
+  width:100vw;
+  color:#414042;
+}
+
+.txt-light{
+  color: $light-color;
+}
+
+.txt-dark{
+  color:$dark-color;
+}
+
+.bg-dark{
+  background-color: $dark-color;
+}
+
+

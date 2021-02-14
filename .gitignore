@@ -2,3 +2,4 @@
 target/
 node_modules/
 resources/js/client.js
+server.js

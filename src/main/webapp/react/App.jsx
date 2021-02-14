@@ -4,14 +4,13 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import {Route} from "react-router";
 import HomePage from "./pages/HomePage";
 
-
 export default function App(){
     return (
        <BrowserRouter>
-            <HeaderComponent/>
-            <Switch>
-                <Route exact={"/"} component={HomePage}/>
-            </Switch>
+          <HeaderComponent/>
+          <Switch>
+              <Route path={"/"} component={HomePage} exact/>
+          </Switch>
        </BrowserRouter>
     );
 }

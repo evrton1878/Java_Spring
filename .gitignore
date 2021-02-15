@@ -1,5 +1,5 @@
 .idea/
 target/
 node_modules/
-resources/js/client.js
+client.js
 server.js

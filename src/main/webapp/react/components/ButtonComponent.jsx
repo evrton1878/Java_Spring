@@ -1,9 +1,11 @@
 import React from 'react';
     
-export default function({title="title"}){
+export default function({title="",children}){
     return (
         <button className={"btn-orange"}>
-            <span>{title}</span>
+            {
+                title.length ? (<span className={"h4"}>{title}</span>): children
+            }
         </button>
     )
 }

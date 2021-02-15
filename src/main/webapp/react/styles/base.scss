@@ -1,0 +1,71 @@
+$light-color: #E6E7E8;
+$dark-color:#414042;
+$orange-color: #FFD850;
+$gray-color: #bfbfc1;
+$light-gray-color: #F5F6F7;
+$light-blue-color:#F7F8F9;
+
+
+.h1,h1{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 75px;
+}
+
+.h4,h4{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.h3, h3{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.h2, h2{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.h5, h5{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.h6{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.txt-light{
+  color: $light-color;
+}
+
+.txt-dark{
+  color:$dark-color;
+}
+
+.txt-grey{
+  color: $gray-color!important;
+}
+
+.bg-dark{
+  background-color: $dark-color;
+}

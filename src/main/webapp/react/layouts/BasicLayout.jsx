@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function BasicLayout({title, children=[]}){
+export default function BasicLayout({title, children=[],description=""}){
     return (
         <section className={"section"}>
             <div className={"section__wrap"}>
@@ -15,6 +15,13 @@ export default function BasicLayout({title, children=[]}){
                              </svg>
                          </div>
                      </div>
+                    {
+                        description.length ?
+                            <div className={"section__description center w-100"}>
+                                <h5>{description}</h5>
+                            </div>
+                            : null
+                    }
                     <div className={"section__items wrap-md"}>
                         {children}
                     </div>

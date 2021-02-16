@@ -10,7 +10,19 @@ const middleware = [
 const state = {
     posts: [],
     comments: [],
-    projects: []
+    projects: [],
+    pages:{
+        homePage:{
+            skills:{
+                skillsDescription: `The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS`,
+                skillsList: [
+                    {title:"NodeJs", description:"As a multi-paradigm language, JavaScript supports event-driven, fun.", image: "/public/images/nodejs_logo.svg"},
+                    {title:"NodeJs", description:"As a multi-paradigm language, JavaScript supports event-driven, fun.", image: "/public/images/nodejs_logo.svg"},
+                    {title:"NodeJs", description:"As a multi-paradigm language, JavaScript supports event-driven, fun.", image: "/public/images/nodejs_logo.svg"},
+                ]
+            }
+        }
+    }
 }
 
 const slice = createSlice({
@@ -24,7 +36,7 @@ const authReducer = slice.reducer;
 
 export const store = configureStore({
     reducer: {
-        auth: authReducer,
+        data: authReducer,
     },
     middleware,
 });

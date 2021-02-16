@@ -20,6 +20,27 @@ export default class extends React.PureComponent{
                         </div>
                     </div>
                 </div>
+
+                <div className={"banner__image center"}>
+                    <div className={"banner__eclipse"}>
+                        <img src={"/public/images/eclipse.svg"} alt={"..."}/>
+                    </div>
+                    <div className={"banner__eclipse"}>
+                        <img src={"/public/images/eclipse.svg"} alt={"..."}/>
+                    </div>
+                    <div className={"banner__eclipse"}>
+                        <img src={"/public/images/eclipse.svg"} alt={"..."}/>
+                    </div>
+                    <div className={"banner__eclipse"}>
+                        <img src={"/public/images/eclipse.svg"} alt={"..."}/>
+                    </div>
+                    <div className={"banner__eclipse"}>
+                        <img src={"/public/images/eclipse.svg"} alt={"..."}/>
+                    </div>
+                    <div className={"banner__eclipse"}>
+                        <img src={"/public/images/eclipse.svg"} alt={"..."}/>
+                    </div>
+                </div>
             </section>
         );
     }

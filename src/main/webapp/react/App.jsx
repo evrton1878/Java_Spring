@@ -5,6 +5,7 @@ import {Route} from "react-router";
 import HomePage from "./pages/HomePage";
 import {Provider} from "react-redux";
 import {store} from "./store";
+import FooterComponent from "./components/FooterComponent";
 
 export default function App(){
     return (
@@ -14,6 +15,7 @@ export default function App(){
               <Switch>
                   <Route path={"/"} component={HomePage} exact/>
               </Switch>
+              <FooterComponent/>
           </Provider>
        </BrowserRouter>
     );

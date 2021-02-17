@@ -27,6 +27,10 @@ export default function HomePage(){
 
             <BasicLayout title={"Questions"}>
             </BasicLayout>
+
+            <BasicLayout title={"Contact me"}>
+
+            </BasicLayout>
         </React.Fragment>
     );
 }

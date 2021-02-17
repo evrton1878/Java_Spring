@@ -1,17 +1,32 @@
-import React from 'react';
-import {useSelector} from "react-redux";
+import React, {useState} from 'react';
 import CardComponent from "./CardComponent";
+import {chunk} from 'lodash';
+import {connect} from 'react-redux';
+import PaginationComponent from "./PaginationComponent";
 
-export default function(){
-    const items = useSelector(state=>state.data.pages.homePage.skills.skillsList);
+
+const mapStateToProps = (state)=>{
+    const skills = state.data.pages.homePage.skills;
+
+    return {
+        items: chunk(skills.skillsList,skills.per_page),
+        page:skills.page,
+        num_pages: skills.num_pages
+    };
+};
+
+
+function SkillsComponent({items, page, num_pages, updatePage}){
+
     return (
         <div className={"skills"}>
             <div className={"skills__wrap center"}>
                <div className={"skills__list center"}>
                    {
-                       items.map(v=>{
+                       (items[page-1]||[]).length &&
+                       items[page-1].map((v, index)=>{
                            return (
-                               <CardComponent padding={true} class={"skills__item"} key={v.title}>
+                               <CardComponent padding={true} class={"skills__item"} key={v.title + index}>
                                    <div className={"skills__item-title"}>
                                        <h3>{v.title}</h3>
                                        <span>
@@ -31,7 +46,12 @@ export default function(){
                        })
                    }
                </div>
+                <div className={"skills__pagination"}>
+                    <PaginationComponent num_pages={num_pages} page={page}/>
+                </div>
             </div>
         </div>
     )
 }
+
+export default connect(mapStateToProps, null)(SkillsComponent)

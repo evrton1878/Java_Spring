@@ -9,7 +9,7 @@ export default class extends React.PureComponent{
                     <div className={"wrap-md"}>
                         <div className={"banner__content center "}>
                             <div className={"banner__items"}>
-                                <h1>
+                                <h1 style={{fontWeight:700}}>
                                     {"Creating stunning websites".toUpperCase()}
                                 </h1>
                                 <p className={"h4 txt-grey"}>

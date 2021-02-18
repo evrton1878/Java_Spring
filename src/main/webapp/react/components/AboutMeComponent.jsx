@@ -61,13 +61,6 @@ export default function(){
                                          </div>
                                          <div className={"h5"}>Phone</div>
                                      </li>
-
-                                     <li className={"center"}>
-                                         <div className={"center"}>
-                                            <img src={"/public/images/linkedin.svg"}/>
-                                         </div>
-                                         <div className={"h5"}>LinkedIn</div>
-                                     </li>
                                  </ul>
                              </div>
                          </div>

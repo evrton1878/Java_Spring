@@ -2,6 +2,7 @@ import {configureStore,
     getDefaultMiddleware,
     createSlice
 } from "@reduxjs/toolkit";
+import _ from 'lodash';
 
 const middleware = [
     ...getDefaultMiddleware(),
@@ -31,6 +32,20 @@ const state = {
                 get num_pages(){
                     return Math.ceil(this.skillsList.length/this.per_page)
                 }
+            },
+            projects:{
+                languages:["JavaScript","PHP","Java","Python","Web design"],
+                activeLanguage:"JavaScript",
+                page:1,
+                projectsList:[
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                ],
             }
         }
     }
@@ -51,13 +66,22 @@ const slice = createSlice({
             } else{
                 skills.page = action.payload;
             }
+        },
+        updateLang(state,action){
+            const lang = action.payload;
+            const projects = state.pages.homePage.projects;
+            const languages = projects.languages;
+
+            if(languages.includes(lang)){
+                projects.activeLanguage = lang;
+            }
         }
     },
 });
 
 const authReducer = slice.reducer;
 
-export const {updatePage} = slice.actions;
+export const {updatePage, updateLang} = slice.actions;
 
 export const store = configureStore({
     reducer: {

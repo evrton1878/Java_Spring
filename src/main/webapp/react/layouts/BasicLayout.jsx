@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function BasicLayout({title, children=[],description=""}){
+export default function BasicLayout({title, children=[],description="",css_class=""}){
     return (
-        <section className={"section"}>
+        <section className={"section "+css_class}>
             <div className={"section__wrap"}>
                 <div className={"section__content"}>
                      <div className={"section__title"}>

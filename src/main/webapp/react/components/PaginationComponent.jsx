@@ -1,11 +1,7 @@
-import React, {useCallback} from 'react';
-import {updatePage} from "../store";
+import React from 'react';
 import {range} from 'lodash';
 import {connect} from 'react-redux'
 
-const mapDispatchToProps = (dispatch)=>({
-       updateAction:(num)=> dispatch(updatePage(num))
-})
 
 function PaginationComponent({num_pages = 3, page = 2, updateAction=()=>{}}){
 
@@ -45,4 +41,4 @@ function PaginationComponent({num_pages = 3, page = 2, updateAction=()=>{}}){
     );
 }
 
-export default connect(null, mapDispatchToProps)(PaginationComponent)
+export default connect(null)(PaginationComponent)

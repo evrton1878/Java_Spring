@@ -7,6 +7,10 @@ import SkillsComponent from "../components/SkillsComponent";
 import {useSelector} from "react-redux";
 import ProjectsSearchComponent from "../components/ProjectsSearchComponent";
 import ProjectsListComponent from "../components/ProjectsListComponent";
+import ProjectsPaginationComponent from "../components/ProjectsPaginationComponent";
+import ContactSectionComponent from "../components/ContactSectionComponent";
+import QuestionsComponent from '../components/Questions'
+
 
 export default function HomePage(){
     const skillsData = useSelector(state=>state.data.pages.homePage.skills);
@@ -28,14 +32,16 @@ export default function HomePage(){
                 <React.Fragment>
                     <ProjectsSearchComponent/>
                     <ProjectsListComponent/>
+                    <ProjectsPaginationComponent/>
                 </React.Fragment>
             </BasicLayout>
 
             <BasicLayout title={"Questions"}>
+                <QuestionsComponent/>
             </BasicLayout>
 
             <BasicLayout title={"Contact me"}>
-
+                 <ContactSectionComponent/>
             </BasicLayout>
         </React.Fragment>
     );

@@ -10,7 +10,7 @@ export default function(){
         const activeLanguage = projects.activeLanguage;
         const page = projects.page;
 
-        const data = _.chunk(projects.projectsList.filter(v=>languages[v.lang]===activeLanguage),3);
+        const data = _.chunk(projects.projectsList.filter(v=>languages[Number(v.lang)]===activeLanguage),3);
 
         if(data.length>=page){
             return data[page-1];

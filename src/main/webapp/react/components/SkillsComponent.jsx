@@ -3,7 +3,11 @@ import CardComponent from "./CardComponent";
 import {chunk} from 'lodash';
 import {connect} from 'react-redux';
 import PaginationComponent from "./PaginationComponent";
+import {updatePage} from "../store";
 
+const mapDispatchToProps = (dispatch)=>({
+    updateAction:(num)=> dispatch(updatePage(num))
+});
 
 const mapStateToProps = (state)=>{
     const skills = state.data.pages.homePage.skills;
@@ -16,7 +20,7 @@ const mapStateToProps = (state)=>{
 };
 
 
-function SkillsComponent({items, page, num_pages, updatePage}){
+function SkillsComponent({items, page, num_pages, updateAction}){
 
     return (
         <div className={"skills"}>
@@ -47,11 +51,11 @@ function SkillsComponent({items, page, num_pages, updatePage}){
                    }
                </div>
                 <div className={"skills__pagination"}>
-                    <PaginationComponent num_pages={num_pages} page={page}/>
+                    <PaginationComponent num_pages={num_pages} page={page} updateAction={updateAction}/>
                 </div>
             </div>
         </div>
     )
 }
 
-export default connect(mapStateToProps, null)(SkillsComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(SkillsComponent)

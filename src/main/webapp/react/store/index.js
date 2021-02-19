@@ -3,6 +3,8 @@ import {configureStore,
     createSlice
 } from "@reduxjs/toolkit";
 import _ from 'lodash';
+import { reducer as formReducer } from 'redux-form'
+
 
 const middleware = [
     ...getDefaultMiddleware(),
@@ -38,14 +40,30 @@ const state = {
                 activeLanguage:"JavaScript",
                 page:1,
                 projectsList:[
-                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
-                    {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
-                    {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
-                    {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
-                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
-                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
-                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me"},
+                    {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me"},
+                    {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0 , description:"The app is developed by me"},
+                    {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:1 , description:"The app is developed by me"},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:1 , description:"The app is developed by me"},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0 , description:"The app is developed by me"},
+                    {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me"},
+                    {title:"Webpack", description:"As a multi-paradigm language, JavaScript supports event-driven, fun.", image: "/public/images/nodejs_logo.svg", lang:1},
+                    {title:"Laravel", description:"As a multi-paradigm language, JavaScript supports event-driven, fun.", image: "/public/images/nodejs_logo.svg",lang:1},
                 ],
+                per_page:3,
+                get num_pages(){
+                    const list = _.chunk(this.projectsList.filter(v=>this.languages[Number(v.lang)]===this.activeLanguage),this.per_page)
+                    return Math.ceil(list.length/this.per_page)
+                }
+            },
+            questions:{
+                questionsList:[
+                    {question:"What technologies do you use for frontend development",answer:"Angular"},
+                    {question:"What technologies do you use for frontend development",answer:"Angular"},
+                    {question:"What technologies do you use for frontend development",answer:"Angular"},
+                    {question:"What technologies do you use for frontend development",answer:"Angular"},
+                    {question:"What technologies do you use for frontend development",answer:"Angular"},
+                ]
             }
         }
     }
@@ -75,17 +93,30 @@ const slice = createSlice({
             if(languages.includes(lang)){
                 projects.activeLanguage = lang;
             }
+        },
+        updateProjectsPage(state,action){
+            const page = action.payload;
+            const projects = state.pages.homePage.projects;
+
+            if(projects.num_pages<page){
+                projects.page = 1;
+            } else if(page<=0){
+                projects.page = projects.num_pages;
+            } else{
+                projects.page = action.payload;
+            }
         }
     },
 });
 
 const authReducer = slice.reducer;
 
-export const {updatePage, updateLang} = slice.actions;
+export const {updatePage, updateLang, updateProjectsPage} = slice.actions;
 
 export const store = configureStore({
     reducer: {
         data: authReducer,
+        form:formReducer
     },
     middleware,
 });

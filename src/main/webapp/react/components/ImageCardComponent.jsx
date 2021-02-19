@@ -2,7 +2,7 @@ import React from 'react';
 import CardComponent from "./CardComponent";
 import ButtonComponent from "./ButtonComponent";
 
-export default function({image="",title=""}){
+export default function({image="",title="",description=""}){
     return (
         <CardComponent class={"projects__list-card"}>
              <>
@@ -11,7 +11,10 @@ export default function({image="",title=""}){
                  </div>
                 <div className={"projects__list-content center"}>
                     <div className={"projects__list-title"}>
-                        <h5 className={"h4"}>{title}</h5>
+                        <h4 className={"h4"}>{title}</h4>
+                    </div>
+                    <div className={"projects__list-txt"}>
+                        <h5>{description}</h5>
                     </div>
                     <div className={"projects__list-btn"}>
                         <ButtonComponent title={"Read more"}/>

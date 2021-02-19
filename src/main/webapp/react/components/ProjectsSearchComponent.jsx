@@ -2,7 +2,7 @@ import React from 'react';
 import {connect, useDispatch} from "react-redux";
 import CardComponent from "./CardComponent";
 import {Button} from "@material-ui/core";
-import {updateLang} from "../store";
+import {updateLang, updateProjectsPage} from "../store";
 
 const mapStateToProps = (state)=>{
     const data = state.data.pages.homePage.projects;
@@ -17,6 +17,7 @@ function ProjectSearchComponent({langList, activeLang}){
     const dispatch = useDispatch();
 
     const handleClick = (activeLang)=>{
+        dispatch(updateProjectsPage(1))
         dispatch(updateLang(activeLang))
     }
 

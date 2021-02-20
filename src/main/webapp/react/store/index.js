@@ -61,8 +61,6 @@ const state = {
                     {question:"What technologies do you use for frontend development",answer:"Angular"},
                     {question:"What technologies do you use for frontend development",answer:"Angular"},
                     {question:"What technologies do you use for frontend development",answer:"Angular"},
-                    {question:"What technologies do you use for frontend development",answer:"Angular"},
-                    {question:"What technologies do you use for frontend development",answer:"Angular"},
                 ]
             }
         }

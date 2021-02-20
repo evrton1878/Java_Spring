@@ -5,7 +5,11 @@ $gray-color: #bfbfc1;
 $light-gray-color: #f5f6f7;
 $light-blue-color:#F7F8F9;
 $margin-sm: 1rem;
+$gray:#E5E5E5;
 
+.bg-gray{
+  background-color: $gray;
+}
 
 .h1,h1{
   font-family: Roboto;

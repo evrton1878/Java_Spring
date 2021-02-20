@@ -9,7 +9,8 @@ import ProjectsSearchComponent from "../components/ProjectsSearchComponent";
 import ProjectsListComponent from "../components/ProjectsListComponent";
 import ProjectsPaginationComponent from "../components/ProjectsPaginationComponent";
 import ContactSectionComponent from "../components/ContactSectionComponent";
-import QuestionsComponent from '../components/Questions'
+import QuestionsComponent from '../components/QuestionsComponent'
+import Decoration from "../components/Decoration";
 
 
 export default function HomePage(){
@@ -18,29 +19,44 @@ export default function HomePage(){
     return (
         <React.Fragment>
             <BannerComponent/>
-            <BasicLayout title={"About me"}>
-               <CardComponent >
-                   <AboutMeComponent/>
-               </CardComponent>
-            </BasicLayout>
+            <div className={'w-100 position-relative'}>
+                <Decoration styles={{top:"1rem", left: "5%",transform:"rotate(199deg)"}}/>
+                <BasicLayout title={"About me"}>
+                    <CardComponent >
+                        <AboutMeComponent/>
+                    </CardComponent>
+                </BasicLayout>
+                <Decoration styles={{bottom:0, right: "5%"}}/>
+            </div>
 
-            <BasicLayout title={"Skills"} description={skillsData.skillsDescription}>
-                <SkillsComponent/>
-            </BasicLayout>
+            <div className={'w-100 position-relative'}>
+                <Decoration styles={{top:0, left: "5%"}}/>
+                <BasicLayout title={"Skills"} description={skillsData.skillsDescription}>
+                    <SkillsComponent/>
+                </BasicLayout>
+                <Decoration styles={{bottom:0, right: "5%"}}/>
+            </div>
 
-            <BasicLayout title={"Projects"} css_class={"projects"}>
-                <React.Fragment>
+            <div className={'w-100 position-relative'}>
+                <Decoration styles={{top:0, left: "5%"}}/>
+                <BasicLayout title={"Projects"} css_class={"projects"}>
+                   <React.Fragment>
                     <ProjectsSearchComponent/>
                     <ProjectsListComponent/>
                     <ProjectsPaginationComponent/>
-                </React.Fragment>
-            </BasicLayout>
+                   </React.Fragment>
+               </BasicLayout>
+            </div>
 
-            <BasicLayout title={"Questions"}>
-                <QuestionsComponent/>
-            </BasicLayout>
+            <div className={"w-100 position-relative"}>
+                <Decoration styles={{bottom:0, left: "5%"}}/>
+                <BasicLayout title={"Questions"}>
+                    <QuestionsComponent/>
+                </BasicLayout>
+                <Decoration styles={{top:0, right: "5%"}}/>
+            </div>
 
-            <BasicLayout title={"Contact me"}>
+            <BasicLayout title={"Contact me"} showLetters={false}>
                  <ContactSectionComponent/>
             </BasicLayout>
         </React.Fragment>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function BasicLayout({title, children=[],description="",css_class=""}){
+export default function BasicLayout({showLetters=true,title, children=[],description="",css_class=""}){
     return (
-        <section className={"section "+css_class}>
+        <section className={"section  position-relative"+css_class}>
             <div className={"section__wrap"}>
                 <div className={"section__content"}>
                      <div className={"section__title"}>
@@ -26,6 +26,14 @@ export default function BasicLayout({title, children=[],description="",css_class
                         {children}
                     </div>
                 </div>
+                {
+                    showLetters &&
+                    (
+                        <div className={"section__letters"}>
+                            {title.toUpperCase()}
+                        </div>
+                    )
+                }
             </div>
         </section>
     )

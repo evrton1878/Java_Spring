@@ -1,8 +1,9 @@
 # Java Spring Application
 
-##Technologies
+## Technologies
 * React
 * Redux
 * Redux Form 
 * Scss
 * Java Spring
+* Mysql

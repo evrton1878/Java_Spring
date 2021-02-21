@@ -213,7 +213,16 @@ section{
 }
 
 .questions__item-answer{
-  overflow:hidden;
+  overflow:hidden !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 2s ease-out;
+  margin-bottom:$margin-sm*2;
+}
+
+.activeItem{
+  max-height:max-content;
+  margin-bottom:$margin-sm*2;
 }
 
 .questions__item-txt h5{

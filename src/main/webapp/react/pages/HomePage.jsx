@@ -56,9 +56,13 @@ export default function HomePage(){
                 <Decoration styles={{top:0, right: "5%"}}/>
             </div>
 
-            <BasicLayout title={"Contact me"} showLetters={false}>
-                 <ContactSectionComponent/>
-            </BasicLayout>
+            <div className={"w-100 position-relative"}>
+                <Decoration styles={{bottom:"5rem", left: "5%"}}/>
+                <BasicLayout title={"Contact me"}>
+                    <ContactSectionComponent/>
+                </BasicLayout>
+                <Decoration styles={{top:0, right: "5%"}}/>
+            </div>
         </React.Fragment>
     );
 }

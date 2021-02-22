@@ -64,6 +64,7 @@ body{
   padding:1rem 1.5rem;
   border:none;
   color: white;
+  outline:none;
 }
 
 .w-100{
@@ -531,25 +532,33 @@ footer{
   max-width: calc(100%/3);
 }
 
-.form__area{
-  max-width:800px;
+.form{
+  max-width:600px;
 }
 
 .form__wrap{
-  padding: $margin-sm*3;
+  width:100%;
+}
+
+.section__content{
+  position: relative;
+  z-index:1;
+}
+
+.form__errors{
+  margin-bottom:$margin-sm*2;
 }
 
 .form__elem{
   flex-direction:column !important;
+  position: relative;
+  z-index:1;
 }
 
 .form__control input,textarea{
-  background: #F3F5F7;
   outline:none;
-  box-shadow: 4px 4px 16px #e3eaef, -4px -4px 16px rgb(255 255 255 / 28%), inset -4px -4px 16px #ffffff, inset 4px 4px 20px #cad6e2;
-  border-radius: 60px;
   border: none;
-  padding: 1rem;
+  padding: $margin-sm $margin-sm $margin-sm $margin-sm*2;
   line-height: 1.5;
   font-size: 18px;
   color:$dark-color;
@@ -557,12 +566,25 @@ footer{
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
+  background: #F3F5F7;
+  box-shadow: inset -4px -4px 16px #FFFFFF, inset 4px 4px 20px #CAD6E2;
+  border-radius: 60px;
 }
 
 .form__control textarea{
   border-radius:30px;
   resize: vertical;
-  min-height:$margin-sm*2;
+  min-height:200px;
+  max-height:400px;
+  border-radius: 45px;
+}
+
+.btn-neo{
+  background: #F7F8F9;
+  border:none;
+  border-radius:60px;
+  color: $dark-color;
+  box-shadow: -4px -4px 16px rgba(255, 255, 255, 0.84), 4px 4px 10px #DCDEE0, inset 4px 4px 16px rgba(255, 255, 255, 0.25), inset -4px -4px 16px rgba(220, 222, 224, 0.25);
 }
 
 .form__btn{
@@ -571,6 +593,7 @@ footer{
   button{
     width:90%;
     max-width:250px;
+    margin-bottom:$margin-sm;
   }
 }
 

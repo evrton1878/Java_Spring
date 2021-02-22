@@ -8,6 +8,10 @@ import {store} from "./store";
 import FooterComponent from "./components/FooterComponent";
 
 export default function App(){
+    window.addEventListener("selectstart",(event)=>{
+        event.preventDefault();
+    })
+    
     return (
        <BrowserRouter>
           <Provider store={store}>

@@ -5,8 +5,8 @@ export default function(){
     return (
         <div className={"contacts w-100"}>
             <div className={"contacts__wrap"}>
-                <div className={"contacts__content w-100"}>
-                    <ContactForm/>
+                <div className={"contacts__content w-100 center"}>
+                    <ContactForm c/>
                 </div>
             </div>
         </div>

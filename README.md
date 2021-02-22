@@ -1,7 +1,7 @@
 # Java Spring Application
 
 ## Technologies
-* React
+* React (the project is located in the folder, named `src/webapp/react`)
 * Redux
 * Redux Form 
 * Scss

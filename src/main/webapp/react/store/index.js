@@ -3,7 +3,6 @@ import {configureStore,
     createSlice
 } from "@reduxjs/toolkit";
 import _ from 'lodash';
-import { reducer as formReducer } from 'redux-form'
 
 
 const middleware = [
@@ -114,7 +113,6 @@ export const {updatePage, updateLang, updateProjectsPage} = slice.actions;
 export const store = configureStore({
     reducer: {
         data: authReducer,
-        form:formReducer
     },
     middleware,
 });

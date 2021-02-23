@@ -69,7 +69,7 @@ function ContactForm(props){
        <React.Fragment>
            <Snackbar
                anchorOrigin={{
-                   vertical: 'center',
+                   vertical: 'bottom',
                    horizontal: 'center',
                }}
                open={Boolean(submitError)}

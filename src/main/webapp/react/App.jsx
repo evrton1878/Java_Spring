@@ -5,22 +5,16 @@ import {Route} from "react-router";
 import HomePage from "./pages/HomePage";
 import {Provider} from "react-redux";
 import {store} from "./store";
-import FooterComponent from "./components/FooterComponent";
 
 export default function App(){
-    window.addEventListener("selectstart",(event)=>{
-        event.preventDefault();
-    })
-    
     return (
        <BrowserRouter>
-          <Provider store={store}>
-              <HeaderComponent/>
-              <Switch>
-                  <Route path={"/"} component={HomePage} exact/>
-              </Switch>
-              <FooterComponent/>
-          </Provider>
+            <Provider store={store}>
+                <HeaderComponent/>
+                <Switch>
+                    <Route exact={true} path={"/"} component={HomePage}/>
+                </Switch>
+            </Provider>
        </BrowserRouter>
     );
 }

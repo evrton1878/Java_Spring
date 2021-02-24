@@ -5,6 +5,8 @@ import {Route} from "react-router";
 import HomePage from "./pages/HomePage";
 import {Provider} from "react-redux";
 import {store} from "./store";
+import NotFoundPage from "./pages/NotFoundPage";
+import PostsPage from "./pages/PostsPage";
 
 export default function App(){
     return (
@@ -13,6 +15,8 @@ export default function App(){
                 <HeaderComponent/>
                 <Switch>
                     <Route exact={true} path={"/"} component={HomePage}/>
+                    <Route exact={true} path={"/posts"} component={PostsPage}/>
+                    <Route path={"/"} component={NotFoundPage}/>
                 </Switch>
             </Provider>
        </BrowserRouter>

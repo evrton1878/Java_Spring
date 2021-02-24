@@ -23,7 +23,7 @@
             data.loadingDiv.style.opacity = 0;
 
             data.loadingDiv.addEventListener("transitionend",(event)=>{
-                 event.target.hidden = true;
+                 event.target.parentElement.removeChild(event.target);
                  document.body.style.overflowY = "visible";
             })
         })

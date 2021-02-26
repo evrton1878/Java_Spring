@@ -1,6 +1,9 @@
 package org.example.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="java_letters")
@@ -12,15 +15,24 @@ public class Letter {
     private int id;
 
     @Column(name="email")
+    @Min(value=10)
+    @Max(value=30)
+    @Pattern(regexp = "\\\\b[A-Z0-9._%-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,4}\\\\b")
     private String email;
 
     @Column(name="username")
+    @Min(value=10)
+    @Max(value=30)
     private String username;
 
+    @Min(value=10)
+    @Max(value=300)
     @Column(name="message")
     private String message;
 
     @Column(name="date")
+    @Min(value=10)
+    @Max(value=30)
     private String date;
 
     @Column(name="status")

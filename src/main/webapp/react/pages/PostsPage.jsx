@@ -3,9 +3,12 @@ import BasicLayout from "../layouts/BasicLayout";
 import CardComponent from "../components/CardComponent";
 import {connect} from 'react-redux';
 import PostsCardComponent from '../components/PostCardComponent'
+import SearchBarComponent from "../components/SearchBarComponent";
+import SidebarComponent from "../components/SidebarComponent";
+import {Pagination} from "@material-ui/lab";
 
 const mapStateToProps = ({data})=>({
-    posts: data.pages.posts
+    posts: data.pages.postsPage.posts
 });
 
 class PostsPage extends React.PureComponent{
@@ -47,6 +50,13 @@ class PostsPage extends React.PureComponent{
                                     )
                                 })
                             }
+                        </div>
+                        <div className={"posts__search"}>
+                            <SearchBarComponent/>
+                            <SidebarComponent/>
+                        </div>
+                        <div className={"posts__pagination center"}>
+                            <Pagination count={10} size="large" />
                         </div>
                     </div>
                 </React.Fragment>

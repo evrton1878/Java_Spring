@@ -21,13 +21,13 @@ export default function(){
                                   <Link to={"/"} activeClassName={"active"} exact={true}>Home</Link>
                               </li>
                               <li className={"header__link"}>
-                                  <Link to={"/contact"} activeClassName={"active"} exact={true}>Contacts</Link>
-                              </li>
-                              <li className={"header__link"}>
                                   <Link to={"/posts"} activeClassName={"active"} exact={true}>Posts</Link>
                               </li>
                               <li className={"header__link"}>
                                   <Link to={"/projects"} activeClassName={"active"} exact={true}>Projects</Link>
+                              </li>
+                              <li className={"header__link"}>
+                                  <Link to={"/contact"} activeClassName={"active"} exact={true}>Contacts</Link>
                               </li>
                           </ul>
                       </div>

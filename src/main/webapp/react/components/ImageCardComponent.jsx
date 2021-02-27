@@ -2,7 +2,7 @@ import React from 'react';
 import CardComponent from "./CardComponent";
 import ButtonComponent from "./ButtonComponent";
 
-export default function({image="",title="",description=""}){
+export default function({image="",title="",description="",id=1}){
     return (
         <CardComponent class={"projects__list-card"}>
              <>
@@ -17,7 +17,7 @@ export default function({image="",title="",description=""}){
                         <h5>{description}</h5>
                     </div>
                     <div className={"projects__list-btn"}>
-                        <ButtonComponent title={"Read more"}/>
+                        <ButtonComponent title={"Read more"} href={"/project/"+id}/>
                     </div>
                 </div>
              </>

@@ -7,6 +7,8 @@ import {Provider} from "react-redux";
 import {store} from "./store";
 import NotFoundPage from "./pages/NotFoundPage";
 import PostsPage from "./pages/PostsPage";
+import ProjectPage from "./pages/ProjectPage/ProjectPage";
+
 
 export default function App(){
     return (
@@ -16,6 +18,7 @@ export default function App(){
                 <Switch>
                     <Route exact={true} path={"/"} component={HomePage}/>
                     <Route exact={true} path={"/posts"} component={PostsPage}/>
+                    <Route path={"/project/:id"} component={ProjectPage}/>
                     <Route path={"/"} component={NotFoundPage}/>
                 </Switch>
             </Provider>

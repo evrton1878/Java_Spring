@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.validation.Valid;
 
 
-
 @Controller
-@RequestMapping("/api/contacts")
 public class ApiController {
     private ObjectApiResponse objectApiResponseResponse;
     private LetterService letterService;
@@ -30,7 +28,7 @@ public class ApiController {
         this.objectApiResponseResponse = objectApiResponseResponse;
     }
 
-    @PostMapping(value = "/contacts", produces = "application/json", headers = "Content-Type:application/json")
+    @PostMapping(value = "/api/contacts", produces = "application/json", headers = "Content-Type:application/json")
     @ResponseBody
     public String addLetter(BindingResult results, @Valid Letter letter){
         if(results.hasErrors()){

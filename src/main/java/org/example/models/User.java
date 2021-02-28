@@ -1,6 +1,5 @@
 package org.example.models;
 
-import org.example.validation.Validate;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

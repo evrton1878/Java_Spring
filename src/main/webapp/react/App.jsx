@@ -6,8 +6,9 @@ import HomePage from "./pages/HomePage";
 import {Provider} from "react-redux";
 import {store} from "./store";
 import NotFoundPage from "./pages/NotFoundPage";
-import PostsPage from "./pages/PostsPage";
+import PostsPage from "./pages/PostsPage/PostsPage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
+import FooterComponent from "./components/FooterComponent";
 
 
 export default function App(){
@@ -21,6 +22,7 @@ export default function App(){
                     <Route path={"/project/:id"} component={ProjectPage}/>
                     <Route path={"/"} component={NotFoundPage}/>
                 </Switch>
+                <FooterComponent/>
             </Provider>
        </BrowserRouter>
     );

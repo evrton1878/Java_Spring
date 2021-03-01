@@ -58,6 +58,14 @@ const state = {
                 ]
             }
         },
+        projectsPage:{
+            projectsList:[
+                {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me",languages:["JavaScript","Php","React","Redux","Material ui"]},
+                {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:2, lang:0, description:"The app is developed by me",languages:["Java","Php"]},
+                {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:3, lang:0 , description:"The app is developed by me",languages:["Python","Php"]},
+                {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:4, lang:1 , description:"The app is developed by me",languages:["JavaScript","Java"]},
+            ],
+        },
         postsPage:{
             posts:[
                 {title:"Async/Await",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"},

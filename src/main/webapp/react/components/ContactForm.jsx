@@ -5,8 +5,27 @@ import NeoButton from "./NeoButton";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {Snackbar} from "@material-ui/core";
 
+const FormErrors = ({errors})=>{
+    if(errors.length){
+        return (
+            <div className={"form__errors w-100"}>
+                {
+                    errors.map(({severity="info",message=""})=>{
+                        return (
+                            <Alert severity={severity} key={Math.random()}>
+                                <AlertTitle>{severity}</AlertTitle>
+                                {message}
+                            </Alert>);
+                    })
+                }
+            </div>
+        )
+    }
+    return null;
+}
 
-function ContactForm(props){
+
+function ContactForm(){
     const [errors , updateErrors] = React.useState([]);
     const [submitError, updateSubmitError] = React.useState("");
 
@@ -94,17 +113,7 @@ function ContactForm(props){
                                 <textarea name={"message"} placeholder={"Message"} maxLength={300} minLength={30} required={true}></textarea>
                             </div>
 
-                            <div className={"form__errors w-100"}>
-                                {
-                                    errors.map(({severity="info",message=""})=>{
-                                        return (
-                                            <Alert severity={severity} key={Math.random()}>
-                                                <AlertTitle>{severity}</AlertTitle>
-                                                {message}
-                                             </Alert>);
-                                    })
-                                }
-                            </div>
+                            <FormErrors errors={errors}/>
 
                             <div className={"form__btn center"}>
                                 <ButtonComponent title={"Submit"}/>

@@ -1,7 +1,8 @@
 import React from 'react';
 import ButtonComponent from "./ButtonComponent";
 import CardComponent from "./CardComponent";
-import {CircularProgress} from "@material-ui/core";
+import {Avatar, Chip, CircularProgress} from "@material-ui/core";
+import DoneIcon from '@material-ui/icons/Done';
 import {Rating} from "@material-ui/lab";
 
 
@@ -10,7 +11,7 @@ export default function({title,description,image,id,category}) {
 
     return (
         <div className={"posts__item-area w-100"}>
-            <CardComponent class={"posts__item-content"}>
+            <CardComponent class={"posts__item-card"}>
                 <>
                     <div className={"posts__item-image position-relative"}>
                         <img src={image} alt={"..."} onLoad={()=>updateState(false)} style={{opacity:loading ? '0':'1'}}/>
@@ -26,6 +27,22 @@ export default function({title,description,image,id,category}) {
                     <div className={"posts__item-content center position-relative"}>
                         <div className={"posts__item-title"}>
                             <h3>{title}</h3>
+                        </div>
+                        <div className={"posts__item-category"}>
+                            <Chip
+                                avatar={<Avatar>{category.charAt(0)}</Avatar>}
+                                label={category}
+                                clickable
+                                color="primary"
+                                deleteIcon={<DoneIcon />}
+                            />
+                            <Chip
+                                avatar={<Avatar>P</Avatar>}
+                                label={"programming"}
+                                clickable
+                                color="primary"
+                                deleteIcon={<DoneIcon />}
+                            />
                         </div>
                         <div className={"posts__item-txt"}>
                             <h5>{description}</h5>

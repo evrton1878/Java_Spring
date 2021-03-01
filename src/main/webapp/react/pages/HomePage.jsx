@@ -49,7 +49,6 @@ export default function HomePage(){
             </div>
 
             <div className={"w-100 position-relative"}>
-                <Decoration styles={{bottom:0, left: "5%"}}/>
                 <BasicLayout title={"Questions"}>
                     <QuestionsComponent/>
                 </BasicLayout>
@@ -61,7 +60,6 @@ export default function HomePage(){
                 <BasicLayout title={"Contact me"}>
                     <ContactSectionComponent/>
                 </BasicLayout>
-                <Decoration styles={{top:0, right: "5%"}}/>
             </div>
         </React.Fragment>
     );

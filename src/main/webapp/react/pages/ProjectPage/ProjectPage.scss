@@ -4,4 +4,17 @@
   .post__content{
       margin-bottom: $margin-sm;
   }
+
+  .projects__languages-item > div{
+    margin-left: $margin-sm/2;
+  }
+
+  .projects__languages-items{
+    padding:$margin-sm*2;
+    justify-content: flex-start !important;
+  }
+
+  .projects__languages-item{
+    padding: $margin-sm $margin-sm*2;
+  }
 }

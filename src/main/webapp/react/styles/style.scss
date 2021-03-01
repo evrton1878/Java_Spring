@@ -60,7 +60,7 @@ body{
   text-align: center;
   background: linear-gradient(96.31deg, rgba(255, 216, 80, 0.49) 45.02%, rgba(255, 255, 255, 0) 101.05%), #FFD850;
   box-shadow: 4px 4px 20px rgba(169, 132, 2, 0.25);
-  border-radius: 60px;
+  border-radius: $border-radius;
   padding:1rem 1.5rem;
   border:none;
   color: white;
@@ -154,7 +154,7 @@ section{
   background: $light-gray-color;
   border: 1px solid $light-gray-color;
   box-sizing: border-box;
-  border-radius: 60px;
+  border-radius: $border-radius;
   box-shadow: -4px -4px 16px #FFFFFF, 4px 4px 20px #CAD6E2;
 }
 
@@ -174,7 +174,7 @@ posts__search-bar
   width:100%;
   object-fit:cover;
   height: 100%;
-  border-radius:60px;
+  border-radius:$border-radius;
   filter: grayscale(0.1);
   transition: opacity 1s ease-out;
   background: linear-gradient(0deg , rgba(30, 28, 33, 0.62) 0%, rgba(65, 64, 66, 0.14) 38.14%);
@@ -186,50 +186,8 @@ posts__search-bar
   width:100%;
 }
 
-.posts__item-content{
-  padding: $margin-sm $margin-sm*3;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.posts__item-content > div{
-  margin-bottom: $margin-sm !important;
-}
-
-.posts__content {
-  display:grid;
-  grid-auto-rows: auto;
-  grid-template-columns: repeat(12,calc(100% / 12));
-}
-
-.posts__categories{
-  grid-column: 1/-1;
-  margin-bottom: $margin-sm;
-}
-
 .text-left{
   text-align:left;
-}
-
-.posts__list{
-  grid-column: 1/ span 7;
-}
-
-.posts__search-content .card__items{
-  display:grid;
-  grid-auto-rows: auto;
-  grid-gap:$margin-sm;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-
-  .posts__search-filter{
-    margin-bottom:$margin-sm;
-  }
-
-  .h3{
-    margin-bottom: $margin-sm;
-  }
 }
 
 .sidebar__item-content{
@@ -313,7 +271,7 @@ posts__search-bar
 
   .questions__wrap{
     width:100%;
-    padding: $margin-sm $margin-sm*3;
+    padding: $margin-sm $margin-sm*2;
 
     .questions__elem{
       flex: 1 1 50%;
@@ -479,7 +437,7 @@ posts__search-bar
 
 .about{
   position: relative;
-  padding: $margin-sm*3;
+  padding: $margin-sm*2;
 }
 
 .about__item:nth-child(1){
@@ -551,7 +509,7 @@ posts__search-bar
 }
 
 .skills__list .skills__item{
-  margin: $margin-sm/2;
+  margin: $margin-sm;
 }
 
 .skills__item-description{
@@ -622,11 +580,11 @@ footer{
 .projects__list-item{
   width:33%;
   flex: 1 1 33%;
-  margin: 0 $margin-sm/2;
+  margin: 0 $margin-sm;
 
   .projects__list-img img{
     width: 100%;
-    border-radius: 60px;
+    border-radius: $border-radius;
     height: 300px;
     max-height:300px;
     object-fit: cover;
@@ -640,7 +598,7 @@ footer{
   .projects__list-content{
     flex-direction: column;
     text-align:center;
-    padding: $margin-sm*3;
+    padding: $margin-sm*2;
     padding-top:0;
   }
 
@@ -701,7 +659,7 @@ footer{
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  background: #F3F5F7;
+  background: $light-gray-color;
   box-shadow: inset -4px -4px 16px #FFFFFF, inset 4px 4px 20px #CAD6E2;
   border-radius: 60px;
 }

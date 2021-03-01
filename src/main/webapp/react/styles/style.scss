@@ -156,6 +156,7 @@ section{
   box-sizing: border-box;
   border-radius: $border-radius;
   box-shadow: -4px -4px 16px #FFFFFF, 4px 4px 20px #CAD6E2;
+  padding: $margin-sm*2;
 }
 
 .text-left{
@@ -195,8 +196,8 @@ posts__search-bar
 }
 
 .posts__stars{
-  right: $margin-sm*3;
-  top:$margin-sm;
+  right: $margin-sm*2;
+  top:$margin-sm*2;
   position: absolute;
 }
 
@@ -437,7 +438,11 @@ posts__search-bar
 
 .about{
   position: relative;
-  padding: $margin-sm*2;
+}
+
+.posts__category .card{
+  padding-top:$margin-sm;
+  padding-bottom: $margin-sm;
 }
 
 .about__item:nth-child(1){

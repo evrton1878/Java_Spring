@@ -60,10 +60,10 @@ const state = {
         },
         projectsPage:{
             projectsList:[
-                {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me",languages:["JavaScript","Php","React","Redux","Material ui"]},
-                {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:2, lang:0, description:"The app is developed by me",languages:["Java","Php"]},
-                {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:3, lang:0 , description:"The app is developed by me",languages:["Python","Php"]},
-                {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:4, lang:1 , description:"The app is developed by me",languages:["JavaScript","Java"]},
+                {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me",languages:["JavaScript","Php","React","Redux","Material ui"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:2, lang:0, description:"The app is developed by me",languages:["Java","Php"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:3, lang:0 , description:"The app is developed by me",languages:["Python","Php"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:4, lang:1 , description:"The app is developed by me",languages:["JavaScript","Java"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
             ],
         },
         postsPage:{

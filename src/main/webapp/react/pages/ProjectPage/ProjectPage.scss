@@ -5,16 +5,34 @@
       margin-bottom: $margin-sm;
   }
 
-  .projects__languages-item > div{
-    margin-left: $margin-sm/2;
+  .projects__description, projects__languages{
+    padding-bottom: $margin-sm*3;
+  }
+
+  .projects__description .projects__description-txt {
+    padding-top:$margin-sm;
   }
 
   .projects__languages-items{
-    padding:$margin-sm*2;
-    justify-content: flex-start !important;
+    padding-top:$margin-sm;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-auto-rows: auto;
+  }
+
+  .projects__languages-items button{
+    width:100%;
   }
 
   .projects__languages-item{
     padding: $margin-sm $margin-sm*2;
+  }
+
+  .projects__languages-txt{
+    flex: 1 1 calc(100% - 40px);
+    text-align:left;
+    font-weight:350;
+    text-transform: lowercase;
+    margin-left: $margin-sm/2;
   }
 }

@@ -32,7 +32,7 @@ class PostsPage extends React.PureComponent{
                                    this.state.categories.map(v=>{
                                        return (
                                            <div className={"posts__category"} key={Math.random()}>
-                                               <CardComponent padding={false}>
+                                               <CardComponent padding={`0`}>
                                                    <div className={"posts__category-wrap"}>
                                                        <h4>{v}</h4>
                                                    </div>

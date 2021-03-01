@@ -4,7 +4,7 @@ import ButtonComponent from "./ButtonComponent";
 
 export default function({image="",title="",description="",id=1}){
     return (
-        <CardComponent class={"projects__list-card"}>
+        <CardComponent class={"projects__list-card"} padding={"0"}>
              <>
                  <div className={"projects__list-img"}>
                      <img src={image} alt={"..."}/>

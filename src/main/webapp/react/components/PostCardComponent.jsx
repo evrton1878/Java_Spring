@@ -11,7 +11,7 @@ export default function({title,description,image,id,category}) {
 
     return (
         <div className={"posts__item-area w-100"}>
-            <CardComponent class={"posts__item-card"}>
+            <CardComponent class={"posts__item-card"} padding={"0"}>
                 <>
                     <div className={"posts__item-image position-relative"}>
                         <img src={image} alt={"..."} onLoad={()=>updateState(false)} style={{opacity:loading ? '0':'1'}}/>

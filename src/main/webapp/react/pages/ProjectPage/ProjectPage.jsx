@@ -8,7 +8,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     avatar: {
         color: '#fff',
-        backgroundColor:"#FFD850"
+        backgroundColor:"#FFD850",
+        flex: "1 1 40px",
+        width:"40px",
+        minWidth:"40px"
     },
 }));
 
@@ -28,18 +31,24 @@ export default function ProjectPage({match}){
     return (
         <div className={"w-100 projects"}>
             <PostLayout {...project} data={data}>
+                <div className={"projects__description"}>
+                    <div className={"text-center h3"}>Description</div>
+                    <div className={"projects__description-txt h5"}>
+                        {project.long_description}
+                    </div>
+                </div>
                 <div className={"projects__languages w-100"}>
                     <div className={"text-center h3"}>Languages</div>
-                    <div className={"projects__languages-items center w-100"}>
+                    <div className={"projects__languages-items w-100"}>
                         {
                             project.languages.map(v=>{
                             return (
-                            <Button>
-                                <div className={"projects__languages-item center"} key={Math.random()}>
+                            <Button className={"w-100"}>
+                                <div className={"projects__languages-item center w-100"} key={Math.random()+v}>
                                     <Avatar variant="square" className={classes.avatar}>
                                         {v.charAt(0)}
                                     </Avatar>
-                                    <div>
+                                    <div className={"projects__languages-txt h5"}>
                                         {v}
                                     </div>
                                 </div>
@@ -47,9 +56,6 @@ export default function ProjectPage({match}){
                             })
                         }
                     </div>
-                </div>
-                <div className={"projects__description"}>
-                    <div className={"text-center h3"}>Description</div>
                 </div>
             </PostLayout>
         </div>

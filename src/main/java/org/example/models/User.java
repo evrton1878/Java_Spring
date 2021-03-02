@@ -6,7 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name="java_user")
+@Table(name="java_user",schema="1oASotOvGd")
 public class User {
     @Id
     @Column(name="id")

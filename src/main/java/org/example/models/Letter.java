@@ -6,7 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name="java_letters")
+@Table(name="java_letters",schema="1oASotOvGd")
 public class Letter {
 
     @Id

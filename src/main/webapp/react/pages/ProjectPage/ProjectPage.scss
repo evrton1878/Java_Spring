@@ -1,34 +1,34 @@
 @import "../../styles/base";
 
-.projects {
+.project{
   .post__content{
       margin-bottom: $margin-sm;
   }
 
-  .projects__description, projects__languages{
-    padding-bottom: $margin-sm*3;
+  .project__description, .project__languages,.project__github{
+    margin-bottom: $margin-sm*2;
   }
 
-  .projects__description .projects__description-txt {
+  .project__description .project__description-txt {
     padding-top:$margin-sm;
   }
 
-  .projects__languages-items{
+  .project__languages-items{
     padding-top:$margin-sm;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     grid-auto-rows: auto;
   }
 
-  .projects__languages-items button{
+  .project__languages-items button{
     width:100%;
   }
 
-  .projects__languages-item{
+  .project__languages-item{
     padding: $margin-sm $margin-sm*2;
   }
 
-  .projects__languages-txt{
+  .project__languages-txt{
     flex: 1 1 calc(100% - 40px);
     text-align:left;
     font-weight:350;

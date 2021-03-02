@@ -56,7 +56,7 @@ function ContactForm(){
                    case "valueMissing":
                        obj.message = `Field, named '${inputName}' is required`;
                        break;
-                   case "valid":
+                   case "invalid":
                        obj.message = `Field, named '${inputName}' is invalid`;
                    default:
                        break;

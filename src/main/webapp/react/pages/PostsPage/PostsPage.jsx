@@ -9,7 +9,7 @@ import {Pagination} from "@material-ui/lab";
 import './PostsPage.scss'
 
 const mapStateToProps = ({data})=>({
-    posts: data.pages.postsPage.posts
+    posts: data.pages.postsPage.filteredPosts
 });
 
 class PostsPage extends React.PureComponent{

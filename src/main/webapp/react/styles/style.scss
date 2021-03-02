@@ -732,3 +732,16 @@ footer{
 .sidebar{
   margin-top:$margin-sm*2;
 }
+
+.contacts__content{
+  position: relative;
+  z-index:2;
+}
+
+#canvas-container canvas{
+  position: absolute;
+  bottom:0;
+  left:0;
+  height:200px;
+  width:100%;
+}

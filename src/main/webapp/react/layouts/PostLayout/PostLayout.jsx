@@ -19,7 +19,7 @@ export default function({title, data=[], image,children=null}){
     return (
         <div className={"post"}>
             <BasicLayout title={title} breadcrumbs = {data} showLetters={false}>
-                <React.Fragment>
+                <div className={"w-100"}>
                     <div className={"post__elem post__breadcrumbs"}>
                         <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
                             {
@@ -41,7 +41,7 @@ export default function({title, data=[], image,children=null}){
                             }
                         </Breadcrumbs>
                     </div>
-                    <div className={"post__elem post__image"}>
+                    <div className={"post__elem post__image card"}>
                         <div className={"post__image-wrap"}>
                             <img src={image} alt={"..."}/>
                         </div>
@@ -49,7 +49,7 @@ export default function({title, data=[], image,children=null}){
                     <div className={"post__elem post__content"}>
                         {children}
                     </div>
-                </React.Fragment>
+                </div>
             </BasicLayout>
         </div>
     );

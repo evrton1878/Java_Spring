@@ -60,23 +60,27 @@ const state = {
         },
         projectsPage:{
             projectsList:[
-                {title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me",languages:["JavaScript","Php","React","Redux","Material ui"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
-                {title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:2, lang:0, description:"The app is developed by me",languages:["Java","Php"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
-                {title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:3, lang:0 , description:"The app is developed by me",languages:["Python","Php"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
-                {title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:4, lang:1 , description:"The app is developed by me",languages:["JavaScript","Java"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {link:"https://github.com/ValValeria/React_NodeJs_GraphQL",title:"React App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:1, lang:0, description:"The app is developed by me",languages:["JavaScript","Php","React","Redux","Material ui"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {link:"https://github.com/ValValeria/React_NodeJs_GraphQL",title:"Angular App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:2, lang:0, description:"The app is developed by me",languages:["Java","Php"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {link:"https://github.com/ValValeria/React_NodeJs_GraphQL",title:"Laravel App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:3, lang:0 , description:"The app is developed by me",languages:["Python","Php"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
+                {link:"https://github.com/ValValeria/React_NodeJs_GraphQL",title:"Python App",image:"https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true",id:4, lang:1 , description:"The app is developed by me",languages:["JavaScript","Java"],long_description:"The Node.js distributed development project was previously governed by the Node.js Foundation,[8] and has now merged with the JS Foundation to form the OpenJS"},
             ],
         },
         postsPage:{
-            posts:[
-                {title:"Async/Await",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"},
-                {title:"Async/Await",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"},
-                {title:"Async/Await",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"},
+            filteredPosts:[
+                {title:"Async/Await",category:"js",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg",date:"2020-09-10"},
+                {title:"Static methods ",category:"java",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg",date:"2020-09-09"},
+                {title:"Async/Await",category:"php",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg",date:"2020-09-08"},
+                {title:"Traits",category:"php",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg",date:"2020-09-08"},
+                {title:"Numpy",category:"python",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg",date:"2020-09-08"},
             ],
             mostPopular:[
                 {title:"xmlhttprequest",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"},
                 {title:"java spring",category:"php",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"},
                 {title:"wordpress",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"}
-            ]
+            ],
+            activeCategory:"",
+            sortByAsc: false
         }
     }
 }
@@ -117,13 +121,58 @@ const slice = createSlice({
             } else{
                 projects.page = action.payload;
             }
+        },
+        sortPostsByAsc(state){
+            const postsPage = state.pages.postsPage;
+            postsPage.sortByAsc = true;
+
+            postsPage.filteredPosts.sort((a,b)=>{
+                const date = new Date(a.date)
+                const date2 = new Date(b.date);
+
+                if(date>date2){
+                   return 1;
+                }
+                if(date<date2){
+                   return -1;
+                }
+                return 0;
+            });
+        },
+        sortPostsByDesc(state){
+            const postsPage = state.pages.postsPage;
+            postsPage.sortByAsc = false;
+
+            postsPage.filteredPosts.sort((a,b)=>{
+                const date = new Date(a.date)
+                const date2 = new Date(b.date);
+
+                if(date<date2){
+                    return 1;
+                }
+                if(date>date2){
+                    return -1;
+                }
+                return 0;
+            });
+        },
+        sortPostsByCategory(state,action){
+            const category = action.payload;
+            const postsPage = state.pages.postsPage;
+            postsPage.activeCategory = category;
+
+            _.remove(postsPage.filteredPosts,(v)=>{
+                 return category !== v.category;
+            })
+        },
+        undoPostFilters(state){
         }
     },
 });
 
 const authReducer = slice.reducer;
 
-export const {updatePage, updateLang, updateProjectsPage} = slice.actions;
+export const {updatePage, updateLang, updateProjectsPage, sortPostsByAsc, sortPostsByDesc, sortPostsByCategory, undoPostFilters} = slice.actions;
 
 export const store = configureStore({
     reducer: {

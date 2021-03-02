@@ -4,6 +4,8 @@ import {useSelector} from "react-redux";
 import PostLayout from "../../layouts/PostLayout/PostLayout";
 import {Avatar, Button} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import ImageButton from "../../components/ImageButton";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -28,27 +30,29 @@ export default function ProjectPage({match}){
 
     const classes = useStyles();
 
+    const history = useHistory();
+
     return (
-        <div className={"w-100 projects"}>
+        <div className={"w-100 project"}>
             <PostLayout {...project} data={data}>
-                <div className={"projects__description"}>
+                <div className={"project__description card"}>
                     <div className={"text-center h3"}>Description</div>
-                    <div className={"projects__description-txt h5"}>
-                        {project.long_description}
+                    <div className={"project__description-txt"}>
+                        <h5>{project.long_description}</h5>
                     </div>
                 </div>
-                <div className={"projects__languages w-100"}>
+                <div className={"project__languages w-100 card"}>
                     <div className={"text-center h3"}>Languages</div>
-                    <div className={"projects__languages-items w-100"}>
+                    <div className={"project__languages-items w-100"}>
                         {
                             project.languages.map(v=>{
                             return (
                             <Button className={"w-100"}>
-                                <div className={"projects__languages-item center w-100"} key={Math.random()+v}>
+                                <div className={"project__languages-item center w-100"} key={Math.random()+v}>
                                     <Avatar variant="square" className={classes.avatar}>
                                         {v.charAt(0)}
                                     </Avatar>
-                                    <div className={"projects__languages-txt h5"}>
+                                    <div className={"project__languages-txt h5"}>
                                         {v}
                                     </div>
                                 </div>
@@ -56,6 +60,9 @@ export default function ProjectPage({match}){
                             })
                         }
                     </div>
+                </div>
+                <div className={"project__github w-100 card"}>
+                     <ImageButton title={"View on github"} onClick={()=>window.open(project.link)} image={"/public/images/enterprise-city-w-logos.webp"}/>
                 </div>
             </PostLayout>
         </div>

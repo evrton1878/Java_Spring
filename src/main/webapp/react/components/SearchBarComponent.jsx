@@ -2,10 +2,22 @@ import React from 'react';
 import CardComponent from "./CardComponent";
 import ButtonComponent from "./ButtonComponent";
 import {Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select} from "@material-ui/core";
+import {useDispatch} from "react-redux";
+import {sortPostsByAsc, sortPostsByCategory, sortPostsByDesc} from "../store";
 
 export default function(){
     const [sortByAsc,updateSortByAsc] = React.useState(true);
     const [category,updateCategory] = React.useState("js");
+    const dispatch = useDispatch();
+
+    const submit = ()=>{
+          if(sortByAsc){
+              dispatch(sortPostsByAsc());
+          } else{
+              dispatch(sortPostsByDesc())
+          }
+          dispatch(sortPostsByCategory(category));
+    }
 
     return (
       <CardComponent padding={true} class={"posts__search-content"}>
@@ -21,8 +33,6 @@ export default function(){
                     <MenuItem value={"js"}>js</MenuItem>
                     <MenuItem value={"java"}>java</MenuItem>
                     <MenuItem value={"php"}>php</MenuItem>
-                    <MenuItem value={"python"}>python</MenuItem>
-                    <MenuItem value={"ui"}>ui</MenuItem>
                 </Select>
             </FormControl>
         </div>
@@ -53,7 +63,7 @@ export default function(){
               />
         </div>
 
-        <div className={"posts__search-btn"}>
+        <div className={"posts__search-btn"} onClick={submit}>
              <ButtonComponent title={"Apply filters"}/>
         </div>
       </CardComponent>

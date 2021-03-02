@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import BannerComponent from "../components/BannerComponent";
 import BasicLayout from "../layouts/BasicLayout";
 import CardComponent from "../components/CardComponent";
@@ -11,16 +11,29 @@ import ProjectsPaginationComponent from "../components/ProjectsPaginationCompone
 import ContactSectionComponent from "../components/ContactSectionComponent";
 import QuestionsComponent from '../components/QuestionsComponent'
 import Decoration from "../components/Decoration";
+import * as Three from 'three';
 
 
 export default function HomePage(){
     const skillsData = useSelector(state=>state.data.pages.homePage.skills);
+    let canvas = React.useRef();
+
+    useEffect(()=>{
+        const scene = new Three.Scene();
+        const camera = new Three.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+        const renderer = new Three.WebGLRenderer();
+        renderer.setSize( window.innerWidth, 300);
+        renderer.setClearColor( 0xffffff, 0 );
+        renderer.render(scene,camera);
+
+        canvas.current.appendChild( renderer.domElement );
+    },[canvas])
 
     return (
         <React.Fragment>
             <BannerComponent/>
             <div className={'w-100 position-relative'}>
-                <Decoration styles={{top:"1rem", left: "5%",transform:"rotate(199deg)"}}/>
                 <BasicLayout title={"About me"}>
                     <CardComponent >
                         <AboutMeComponent/>
@@ -34,7 +47,6 @@ export default function HomePage(){
                 <BasicLayout title={"Skills"} description={skillsData.skillsDescription}>
                     <SkillsComponent/>
                 </BasicLayout>
-                <Decoration styles={{bottom:0, right: "5%"}}/>
             </div>
 
             <div className={'w-100 position-relative'}>
@@ -60,6 +72,8 @@ export default function HomePage(){
                 <BasicLayout title={"Contact me"}>
                     <ContactSectionComponent/>
                 </BasicLayout>
+                <div id={"canvas-container"} ref={canvas} hidden>
+                </div>
             </div>
         </React.Fragment>
     );

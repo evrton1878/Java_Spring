@@ -6,7 +6,7 @@ import DoneIcon from '@material-ui/icons/Done';
 import {Rating} from "@material-ui/lab";
 
 
-export default function({title,description,image,id,category}) {
+export default function({title,description,image,id,category, href}) {
     const [loading,updateState] = React.useState(true);
 
     return (
@@ -48,7 +48,7 @@ export default function({title,description,image,id,category}) {
                             <h5>{description}</h5>
                         </div>
                         <div className={"posts__item-btn"}>
-                            <ButtonComponent title={"Read more"}/>
+                            <ButtonComponent title={"Read more"} href={href}/>
                         </div>
                         <div className={"posts__stars"}>
                             <Rating name="read-only" value={5} readOnly />

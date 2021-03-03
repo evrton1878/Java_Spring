@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import 'base.scss';
+@import 'media.scss';
 
 *{
   margin: 0;
@@ -736,6 +737,10 @@ footer{
 .contacts__content{
   position: relative;
   z-index:2;
+}
+
+.header__logo{
+  cursor:pointer;
 }
 
 #canvas-container canvas{

@@ -80,7 +80,9 @@ const state = {
                 {title:"wordpress",category:"JS",id:1,description:"Async is used in javascript",image:"/public/images/js.jpg"}
             ],
             activeCategory:"",
-            sortByAsc: false
+            sortByAsc: false,
+            page:1,
+            per_page:3,
         }
     }
 }
@@ -142,6 +144,7 @@ const slice = createSlice({
         sortPostsByDesc(state){
             const postsPage = state.pages.postsPage;
             postsPage.sortByAsc = false;
+            postsPage.page = 1;
 
             postsPage.filteredPosts.sort((a,b)=>{
                 const date = new Date(a.date)
@@ -160,19 +163,26 @@ const slice = createSlice({
             const category = action.payload;
             const postsPage = state.pages.postsPage;
             postsPage.activeCategory = category;
+            postsPage.page = 1;
 
             _.remove(postsPage.filteredPosts,(v)=>{
                  return category !== v.category;
             })
         },
         undoPostFilters(state){
+            const postsPage = state.pages.postsPage;
+            postsPage.page = 1;
+        },
+        changePostPage(state,action){
+            const postsPage = state.pages.postsPage;
+            postsPage.page = action.payload;
         }
     },
 });
 
 const authReducer = slice.reducer;
 
-export const {updatePage, updateLang, updateProjectsPage, sortPostsByAsc, sortPostsByDesc, sortPostsByCategory, undoPostFilters} = slice.actions;
+export const {updatePage, changePostPage, updateLang, updateProjectsPage, sortPostsByAsc, sortPostsByDesc, sortPostsByCategory, undoPostFilters} = slice.actions;
 
 export const store = configureStore({
     reducer: {

@@ -1,13 +1,67 @@
 import React from 'react';
 import {NavLink as Link} from 'react-router-dom';
+import InputBase from '@material-ui/core/InputBase';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import SearchIcon from '@material-ui/icons/Search';
+import {useHistory} from "react-router";
+
+
+const useStyles = makeStyles((theme) => ({
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    search: {
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
+        },
+        marginLeft: 0,
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: theme.spacing(1),
+            width: 'auto',
+        },
+    },
+    searchIcon: {
+        padding: theme.spacing(0, 2),
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    inputRoot: {
+        color: 'inherit',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '12ch',
+            '&:focus': {
+                width: '20ch',
+            },
+        },
+    },
+}));
+
 
 export default function(){
+    const classes = useStyles();
+    const history = useHistory();
+
     return (
      <header className={"header txt-light bg-dark center"}>
           <div className={"header__wrap wrap-md center"}>
               <div className={"wrap-md"}>
                   <div className={"header__content center w-100"}>
-                      <div className={"header__brand-logo"}>
+                      <div className={"header__brand-logo"} onClick={()=>history.push("/")}>
                           <div className={"header__logo"}>
                               <svg width="208" height="42" viewBox="0 0 208 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <rect width="10" height="42" fill="#E6E7E8"/>
@@ -28,6 +82,21 @@ export default function(){
                               </li>
                               <li className={"header__link"}>
                                   <Link to={"/contact"} activeClassName={"active"} exact={true}>Contacts</Link>
+                              </li>
+                              <li className={"header__link header__search"}>
+                                  <div className={classes.search}>
+                                      <div className={classes.searchIcon}>
+                                          <SearchIcon />
+                                      </div>
+                                      <InputBase
+                                          placeholder="Search…"
+                                          classes={{
+                                              root: classes.inputRoot,
+                                              input: classes.inputInput,
+                                          }}
+                                          inputProps={{ 'aria-label': 'search' }}
+                                      />
+                                  </div>
                               </li>
                           </ul>
                       </div>

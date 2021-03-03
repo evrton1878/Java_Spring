@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PostsPage from "./pages/PostsPage/PostsPage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import FooterComponent from "./components/FooterComponent";
+import PostPage from "./pages/PostPage/PostPage";
 
 
 export default function App(){
@@ -20,6 +21,7 @@ export default function App(){
                     <Route exact={true} path={"/"} component={HomePage}/>
                     <Route exact={true} path={"/posts"} component={PostsPage}/>
                     <Route path={"/project/:id"} component={ProjectPage}/>
+                    <Route path={"/post/:id"} component={PostPage}/>
                     <Route path={"/"} component={NotFoundPage}/>
                 </Switch>
                 <FooterComponent/>

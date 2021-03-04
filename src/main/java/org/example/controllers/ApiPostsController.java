@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +40,8 @@ public class ApiPostsController {
 
     @Autowired
     ApiPostsController(ObjectApiResponse obj, PostService postService){
-        allowedTypes = Arrays.asList(new String[]{"image/png","image/svg"});
+        String[] types = new String[]{"image/png","image/svg"};
+        allowedTypes = Arrays.asList(types);
         objectApiResponse = obj;
         resource = new ClassPathResource("/webapp/resources");
         this.postService = postService;
@@ -46,11 +49,18 @@ public class ApiPostsController {
 
     @RequestMapping(value="/post/{id}",method= RequestMethod.GET,produces = "application/json")
     @ResponseBody
-    public String getPost(@PathVariable int id) throws JsonProcessingException {
+    public ResponseEntity<String> getPost(@PathVariable int id) throws JsonProcessingException {
         Post post = postService.getPost(id);
         ObjectMapper mapper = new ObjectMapper();
-        String result = mapper.writeValueAsString(post);
-        return result;
+        String result = "{}";
+
+        if(post != null){
+            result = mapper.writeValueAsString(post);
+        } else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+        }
+
+        return ResponseEntity.ok(result);
     }
 
     @RequestMapping(value="/posts",method= RequestMethod.GET,produces = "application/json")
@@ -58,14 +68,16 @@ public class ApiPostsController {
     public String getPosts(@RequestParam String page, @RequestParam String per_page ) {
         Integer pageInteger = Integer.valueOf(page);
         Integer perPageInteger = Integer.valueOf(per_page);
-        int start = pageInteger*perPageInteger;
-        int end = start+perPageInteger;
+        int start = pageInteger * perPageInteger;
+        int end = start + perPageInteger;
         List<Post> posts = postService.getPosts(pageInteger*perPageInteger,end);
         ObjectMapper mapper = new ObjectMapper();
-        String result = null;
+        String result = "[]";
 
         try {
-            result = mapper.writeValueAsString(posts);
+            if(posts.size()>0){
+                result = mapper.writeValueAsString(posts);
+            }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

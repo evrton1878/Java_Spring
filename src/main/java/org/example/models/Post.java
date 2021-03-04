@@ -1,7 +1,6 @@
 package org.example.models;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

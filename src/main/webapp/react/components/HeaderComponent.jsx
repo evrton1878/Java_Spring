@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function(){
+export default function(props){
     const classes = useStyles();
     const history = useHistory();
 
@@ -69,7 +69,7 @@ export default function(){
                               </svg>
                           </div>
                       </div>
-                      <div className={"header__links center"}>
+                      <div className={"header__links center " + (props.links_classes ?? "")}>
                           <ul className={"center"}>
                               <li className={"header__link"}>
                                   <Link to={"/"} activeClassName={"active"} exact={true}>Home</Link>
@@ -100,6 +100,7 @@ export default function(){
                               </li>
                           </ul>
                       </div>
+                      {props.children}
                   </div>
               </div>
           </div>

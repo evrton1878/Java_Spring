@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.models.Post;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,11 @@ public class PostDao {
     }
 
     public List<Post> getPosts(int start, int limit){
-        String query = String.format("select * from java_post where id>= d% limit d%",start,limit);
-        return getCurrentSession().createSQLQuery(query).list();
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from Post where id>= " + start);
+        query.setMaxResults(limit);
+        List<Post> list = query.list();
+        return list;
     }
 
     public Post getPost(int id){

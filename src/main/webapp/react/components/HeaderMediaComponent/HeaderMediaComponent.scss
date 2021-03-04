@@ -1,0 +1,15 @@
+@import '../../styles/base';
+
+@media(max-width:$media-header){
+    .header-media{
+      .header__menu-icon{
+        top:1rem;
+        right:1rem;
+      }
+
+      .none{
+        display:none !important;
+        opacity:0;
+      }
+    }
+}

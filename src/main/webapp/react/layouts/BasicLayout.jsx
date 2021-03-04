@@ -6,7 +6,7 @@ export default function BasicLayout({showLetters=true,title, children=[],descrip
         <section className={"section  position-relative"+css_class}>
             <div className={"section__wrap"}>
                 <div className={"section__content"}>
-                     <div className={"section__title"}>
+                     <div className={"h2 section__title"}>
                          <span>{title}</span>
                          <div className={"section__line"}>
                              <svg width="322" height="11" viewBox="0 0 322 11" fill="none" xmlns="http://www.w3.org/2000/svg">

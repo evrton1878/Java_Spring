@@ -1,26 +1,39 @@
 package org.example.service;
 
+import org.example.dao.UserDao;
 import org.example.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.TestingAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 public class UserService {
     private User user;
-    private Boolean isAuth = false;
+    private UserDao userDao;
 
-    public User getUser() {
-        return user;
+    @Autowired
+    UserService(UserDao userDao){
+        this.userDao = userDao;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    @Transactional
+    public boolean login(String email, String password){
+        user = userDao.findUser(email,password);
 
-    public Boolean getAuth() {
-        return isAuth;
-    }
+        SecurityContext context = SecurityContextHolder.createEmptyContext();
+        Authentication authentication =
+                new TestingAuthenticationToken(user.getUsername() ,user.getPassword(), user.getStatus());
+        context.setAuthentication(authentication);
+        SecurityContextHolder.setContext(context);
 
-    public void setAuth(Boolean auth) {
-        isAuth = auth;
+        if(user != null) {
+            return true;
+        }
+        return false;
     }
 }

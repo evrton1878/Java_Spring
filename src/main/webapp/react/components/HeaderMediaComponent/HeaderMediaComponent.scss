@@ -3,13 +3,45 @@
 @media(max-width:$media-header){
     .header-media{
       .header__menu-icon{
-        top:1rem;
-        right:1rem;
+        top:$margin-sm;
+        right:$margin-sm*2;
+        position:absolute;
       }
 
       .none{
         display:none !important;
-        opacity:0;
+        max-height: 0px !important;
+        overflow: hidden;
+      }
+
+      .header__content{
+        flex-direction: column;
+      }
+
+      .header__links{
+        transition: max-height 1s ease-in-out;
+        max-height: 93vh;
+        width:100%;
+        min-height:92vh;
+        align-items: flex-start;
+        padding-top:$margin-sm*3;
+
+        ul{
+          flex-direction: column;
+          width: 90%;
+        }
+
+        ul li{
+          width:100%;
+          margin: $margin-sm 0;
+          text-align:center;
+          font-size:$h4;
+          font-weight:300;
+
+          input{
+            font-size:$h4;
+          }
+        }
       }
     }
 }

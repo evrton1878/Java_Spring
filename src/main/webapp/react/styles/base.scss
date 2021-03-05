@@ -8,6 +8,7 @@ $margin-sm: 1.25rem;
 $gray:#E5E5E5;
 $border-radius:25px;
 $media-header:900px;
+$h4:24px;
 
 .bg-gray{
   background-color: $gray;
@@ -29,7 +30,7 @@ $media-header:900px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 24px;
+  font-size: $h4;
   line-height: 28px;
 }
 

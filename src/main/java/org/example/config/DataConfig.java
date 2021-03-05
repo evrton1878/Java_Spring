@@ -1,6 +1,7 @@
 package org.example.config;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -47,7 +48,6 @@ public class DataConfig {
         hibernateProp.put("hibernate.show_sql", true);
         hibernateProp.put("hibernate.max_fetch_depth", 3);
         hibernateProp.put("hibernate.jdbc.batch_size", 10);
-        hibernateProp.put("hibernate.jdbc.fetch_size", 50);
         return hibernateProp;
     }
 
